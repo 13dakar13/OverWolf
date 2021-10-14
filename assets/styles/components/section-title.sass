@@ -11,6 +11,16 @@
         font-size: 44px
     &_small
         font-size: 20px
+        .section-title__deco::before
+            height: 20px
+        .section-title__deco::after
+            height: 10px
+            transform: translate(9px, calc( -2px - 50% )) rotateZ(-45deg)
+    &_error &__deco
+        &::before
+            background-color: #FF0000
+        &::after
+            background-image: linear-gradient(to bottom, #FF4A4A 0%, #FF4A4A 100%)
     &__content
         text-align: inherit
         text-transform: inherit

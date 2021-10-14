@@ -98,11 +98,17 @@
               Столбец "Выгода" считается исходя из подписки на 1 день.
             </div>
           </div>
+
+          <range-slider
+            :value.sync="chosenDays"
+
+            class="subscribe-registration__slider"
+          />
         </main>
         <footer class="inner-page__block-footer subscribe-registration__footer">
           <div class="subscribe-registration__row">
             <span class="subscribe-registration__days">
-              30 ДНЕЙ
+              {{chosenDaysText}}
             </span>
 
             <div class="subscribe-registration__footer-row">
@@ -183,10 +189,11 @@
 
 <script>
 import appButton from '~/components/common/appButton.vue';
+import rangeSlider from '~/components/common/rangeSlider.vue';
 import switchBox from '~/components/common/input/switcher.vue';
-import appCheckbox from '~/components/common/input/appCheckbox.vue';
 import sectionTitle from '~/components/common/sectionTitle.vue';
 import countdownTimer from '~/components/common/countdownTimer.vue';
+import appCheckbox from '~/components/common/input/appCheckbox.vue';
 import activeSubscribe from '~/components/subscribe-page/activeSubscribe.vue';
 
 export default {
@@ -196,6 +203,7 @@ export default {
     return {
       referalCode: '',
       autoProlongation: false,
+      chosenDays: 12,
       activeSubscribes: [
         {
           name: 'Dota 2',
@@ -214,16 +222,22 @@ export default {
   },
   methods: {
     submitReferalCode(){
-      console.log('referalCode', referalCode);
+      console.log('referalCode', this.referalCode);
     },
 
     countdownFinish(){
 
     },
   },
+  computed: {
+    chosenDaysText(){
+      return this.chosenDays > 1 ? `${this.chosenDays} ДНЕЙ` : `${this.chosenDays} ДЕНЬ`;
+    }
+  },
   components: {
     appButton,
     switchBox,
+    rangeSlider,
     appCheckbox,
     sectionTitle,
     countdownTimer,

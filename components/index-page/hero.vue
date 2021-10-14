@@ -2,7 +2,10 @@
   <section class="hero">
     <div class="container container_hero hero__wrap">
       <div class="hero__body">
-        <h1 class="hero__title text-uppercase text-color-white">
+        <h1
+          class="hero__title text-uppercase text-color-white"
+          data-glitch-text="OverWolf"
+        >
           OverWolf
         </h1>
 

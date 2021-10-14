@@ -21,15 +21,48 @@
         transition: transform .3s ease-in-out 0s
         width: calc( 100% - 20px )
         max-width: 360px
+    &__content
+        &_referal
+            margin-top: 20px
     &__main
         padding: 25px
         background-repeat: no-repeat
         border-radius: 10px 10px 0 0
+        position: relative
         &_register
             padding-bottom: 1px
         &_default
             box-shadow: 0 -10px 30px rgba(#6a3ddc, .4)
             background: linear-gradient(261deg, rgba(129, 25, 124, 0.2) -12%, rgba(black, 0) 51%), #181721
+        &_full
+            border-radius: 10px
+            background: linear-gradient(261deg, rgba(129, 25, 124, 0.2) -12%, rgba(black, 0) 51%), #181721
+            padding-bottom: 25px
+            box-shadow: 0 -10px 30px rgba(#6a3ddc, .4)
+        &_error
+            box-shadow: 0 -10px 30px rgba(#FF4A4A, .4)
+        &_referal
+            padding-top: 15px
+            background-color: transparent
+            backdrop-filter: blur(5px)
+            background-image: linear-gradient(to left, #FF4AF726, #00CCFF26)
+            box-shadow: none
+    &__referal-title
+        text-transform: uppercase
+        font-weight: 700
+        text-align: center
+        margin-bottom: 20px
+        background-image: linear-gradient(to left, #FF4AF7, #00CCFF)
+        background-clip: text
+        color: transparent
+        font-size: 20px
+    &__bg
+        position: absolute
+        top: 15px
+        left: 0
+        bottom: 0
+        right: 0
+        pointer-events: none
     &__title
         margin-bottom: 25px
     &__button
@@ -45,6 +78,11 @@
             &:last-child
                 border-bottom-left-radius: 5px
                 border-bottom-right-radius: 5px
+    &__text
+        font-size: 14px
+        text-align: center
+        display: block
+        color: rgba(white, .5)
     &__small-text
         font-size: 13px
         color: #fefefe

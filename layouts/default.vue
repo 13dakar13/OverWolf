@@ -38,6 +38,9 @@
       <register-popup-component
 
       />
+      <referal-popup-component
+        v-if="popups.referal.isOpen"
+      />
     </popup-component>
 
     <popup-component
@@ -46,6 +49,26 @@
       :is-open="popups.recovery.isOpen"
     >
       <recovery-popup-component
+
+      />
+    </popup-component>
+
+    <popup-component
+      @close-popup="closePopup(popups.error)"
+
+      :is-open="popups.error.isOpen"
+    >
+      <error-popup-component
+
+      />
+    </popup-component>
+
+    <popup-component
+      @close-popup="closePopup(popups.success)"
+
+      :is-open="popups.success.isOpen"
+    >
+      <success-popup-component
 
       />
     </popup-component>
@@ -59,6 +82,9 @@ import popupComponent from '@/components/common/popup/popup.vue';
 import loginPopupComponent from '@/components/common/popup/loginPopup.vue';
 import registerPopupComponent from '@/components/common/popup/registerPopup.vue';
 import recoveryPopupComponent from '@/components/common/popup/recoveryPopup.vue';
+import errorPopupComponent from '@/components/common/popup/errorPopup.vue';
+import successPopupComponent from '@/components/common/popup/successPopup.vue';
+import referalPopupComponent from '@/components/common/popup/referalPopup.vue';
 
 export default {
   data(){
@@ -72,6 +98,15 @@ export default {
           isOpen: false,
         },
         recovery: {
+          isOpen: false,
+        },
+        success: {
+          isOpen: false,
+        },
+        error: {
+          isOpen: false,
+        },
+        referal: {
           isOpen: false,
         },
       },
@@ -109,7 +144,10 @@ export default {
     appHeader,
     appFooter,
     popupComponent,
+    errorPopupComponent,
     loginPopupComponent,
+    successPopupComponent,
+    referalPopupComponent,
     registerPopupComponent,
     recoveryPopupComponent,
   }

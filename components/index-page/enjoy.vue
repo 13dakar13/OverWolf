@@ -68,8 +68,8 @@ export default {
       maxValue: 100,
       slidePercentage: 50,
       videos: [
-        require('~/assets/video/right-compare.webm'),
-        require('~/assets/video/left-compare.webm'),
+        require('~/assets/video/enjoy/right-compare.webm'),
+        require('~/assets/video/enjoy/left-compare.webm'),
       ]
     }
   },

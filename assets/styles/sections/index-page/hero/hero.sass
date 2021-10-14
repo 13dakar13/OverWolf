@@ -25,6 +25,25 @@
         font-family: Audiowide
         font-size: 47px
         margin-bottom: 30px
+        position: relative
+        &:before, &:after
+            font-family: inherit
+            font-size: inherit
+            font-weight: inherit
+            color: inherit
+            content: attr(data-glitch-text)
+            position: absolute
+            overflow: hidden
+            top: 0
+        &:before
+            left: 3px
+            text-shadow: -3px 0 red
+            animation: glitch-before 40s linear 0s alternate
+        &:after
+            left: -3px
+            text-shadow: -3px 0 blue
+            animation: glitch-after 30s linear 0s alternate
+
     &__description
         font-size: 14px
         line-height: 160%
@@ -45,3 +64,15 @@
             font-size: 40px
             margin-bottom: 15px
 
+
+@keyframes glitch-before
+    $steps: 100
+    @for $i from 0 through $steps
+        #{percentage($i * (1 / $steps))}
+            clip: rect(random(60) + px, 380px, random(60) + px, 0px)
+
+@keyframes glitch-after
+    $steps: 100
+    @for $i from 0 through $steps
+        #{percentage($i * (1 / $steps))}
+            clip: rect(random(60) + px, 380px, random(60) + px, 0px)
