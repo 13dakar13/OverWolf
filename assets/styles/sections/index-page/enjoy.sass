@@ -1,0 +1,91 @@
+.enjoy
+    min-height: 100vh
+    padding-top: 180px
+    position: relative
+    --skew-angle: 10deg
+    --divider-offset: 50%
+    &::before, &::after
+        content: ''
+        position: absolute
+        display: block
+        width: 100%
+        left: 0
+        height: 230px
+        z-index: 2
+        pointer-events: none
+    &::before
+        top: 0
+        background: linear-gradient(180deg, black 5%, rgba(black, 0) 60%)
+    &::after
+        bottom: 0
+        background: linear-gradient(0deg, black 5%, rgba(black, 0) 60%)
+    &__title
+        z-index: 6
+        position: relative
+        pointer-events: none
+    &__compare
+        position: absolute
+        overflow: hidden
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+    &__video
+        display: block
+        height: 100%
+        width: 105vw
+        object-fit: cover
+        transform: translateX(-2%) skew(var(--skew-angle))
+    &__video-container
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        transform: skew(calc( 0deg - var(--skew-angle) ))
+        &:nth-child(2)
+            width: calc( var(--divider-offset) + 5% )
+            left: -5%
+            overflow: hidden
+            .enjoy__video
+                object-position: 96px 50%
+    &__divider
+        transform: translate(-50%, -50%) rotate(var(--skew-angle))
+        height: 130vh
+        width: 3px
+        position: absolute
+        top: 50%
+        left: var(--divider-offset)
+        background-image: linear-gradient(to top, #8F83FA 0%, #FF4AF7 100%)
+    &__drag
+        width: 42px
+        height: 42px
+        border-radius: 100%
+        background-image: url(~/assets/img/icons/drag-button.png)
+        background-repeat: no-repeat
+        background-size: cover
+        position: absolute
+        z-index: 2
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%) rotate(calc( 0deg - var(--skew-angle) ))
+
+@media screen and ( max-width: 1390px )
+    .enjoy
+        &__video-container
+            &:nth-child(2)
+                width: calc( var(--divider-offset) + 10% )
+                left: -7%
+        &__divider
+            left: calc(var(--divider-offset) + 3%)
+
+@media screen and ( max-width: 660px )
+    .enjoy
+        padding-top: 80px
+        &__video-container
+            &:nth-child(2)
+                width: calc( var(--divider-offset) + 15% )
+                left: -12%
+                .enjoy__video
+                    object-position: 44% 50%
+

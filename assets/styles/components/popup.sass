@@ -1,0 +1,58 @@
+.popup
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    padding: 10px
+    z-index: calc( var(--overflow-z-index) + 3 )
+    backdrop-filter: blur(5px)
+    transition: opacity .3s ease-in-out 0s, visibility .3s ease-in-out 0s
+    --container-translate: 0px
+    &:not(.active)
+        opacity: 0
+        visibility: hidden
+        --container-translate: 25px
+    &__container
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, calc( var(--container-translate) - 50% ))
+        transition: transform .3s ease-in-out 0s
+        width: calc( 100% - 20px )
+        max-width: 360px
+    &__main
+        padding: 25px
+        background-repeat: no-repeat
+        border-radius: 10px 10px 0 0
+        &_register
+            padding-bottom: 1px
+        &_default
+            box-shadow: 0 -10px 30px rgba(#6a3ddc, .4)
+            background: linear-gradient(261deg, rgba(129, 25, 124, 0.2) -12%, rgba(black, 0) 51%), #181721
+    &__title
+        margin-bottom: 25px
+    &__button
+        span
+            padding: 12px
+    &__input-group
+        margin-bottom: 15px
+        .popup__input
+            &:first-child
+                border-top-left-radius: 5px
+                border-top-right-radius: 5px
+                margin-bottom: 1px
+            &:last-child
+                border-bottom-left-radius: 5px
+                border-bottom-right-radius: 5px
+    &__small-text
+        font-size: 13px
+        color: #fefefe
+        text-align: center
+    &__footer
+        background-color: black
+        padding: 20px 25px
+        border-radius: 0 0 10px 10px
+        margin-bottom: 5px
+    &__register
+        margin-top: 10px

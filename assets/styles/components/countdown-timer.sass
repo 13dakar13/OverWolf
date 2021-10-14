@@ -1,0 +1,36 @@
+.countdown-timer
+    display: flex
+    align-items: center
+    padding: 15px
+    border: 1px dashed #3c2f5d
+    border-radius: 10px
+    &__section
+        display: flex
+        flex-direction: column
+        align-items: center
+    &__section-value, &__section-label
+        text-align: center
+        color: var(--text-white)
+    &__section-value
+        font-size: 21px
+        font-weight: 600
+    &__section-label
+        opacity: .5
+        font-size: 12px
+    &__time-divider
+        color: var(--text-white)
+        font-size: 21px
+        opacity: .5
+        padding-bottom: 0.4em
+    &__time
+        flex-grow: 1
+        margin-left: 20px
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+
+@media screen and ( max-width: 720px )
+    .countdown-timer
+        padding: 10px
+

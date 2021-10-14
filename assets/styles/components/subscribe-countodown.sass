@@ -1,0 +1,57 @@
+.subscribe-countodown
+    &__title
+        margin-bottom: 22px
+    &__row
+        display: flex
+        align-items: stretch
+    &__timer
+        flex-grow: 1
+    &__button
+        margin-left: 10px
+        font-size: 14px
+        white-space: normal
+        color: rgba(white, .5)
+        max-width: 95px
+        font-weight: 400
+        background-image: url(~/assets/img/icons/countdown-button.svg)
+        background-repeat: no-repeat
+        background-size: 100% 100%
+        &::after
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            z-index: -1
+            opacity: 0
+            height: 100%
+            width: 100%
+            display: block
+            border-radius: inherit
+            background-image: linear-gradient(to right, #415790 0%, #85348E 100%)
+            transition: opacity .2s ease-out
+        &:hover
+            color: rgba(white, 1)
+            &::after
+                opacity: 1
+
+
+@media screen and ( max-width: 720px )
+    .subscribe-countodown
+        &__row
+            max-width: 400px
+            margin: 0 auto
+
+@media screen and ( max-width: 465px )
+    .subscribe-countodown
+        &__row
+            flex-direction: column
+        &__button
+            margin-left: 0
+            margin-top: 15px
+            max-width: none
+            color: rgba(white, 1)
+            font-size: 16px
+            padding: 16px
+            &::after
+                opacity: 1
+

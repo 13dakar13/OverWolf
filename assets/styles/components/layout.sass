@@ -1,0 +1,30 @@
+@keyframes header-fadeout
+    0%
+        transform: translateY(-100%)
+        opacity: 0
+    100%
+        transform: translateY(0%)
+        opacity: 1
+
+@keyframes footer-fadeout
+    0%
+        transform: translateY(100%)
+        opacity: 0
+    100%
+        transform: translateY(0%)
+        opacity: 1
+
+
+.layout
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    &__header, &__footer
+        animation-delay: 0s
+        animation-duration: 1s
+        animation-iteration-count: 1
+        animation-timing-function: ease-in-out
+    &__header
+        animation-name: header-fadeout
+    &__footer
+        animation-name: footer-fadeout

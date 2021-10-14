@@ -1,0 +1,84 @@
+@keyframes slide
+    0%
+        transform: translateX(0%)
+    100%
+        transform: translateX(-100%)
+
+
+.inventory
+    min-height: 100vh
+    background-image: url(~assets/img/buy-bg.svg)
+    background-size: cover
+    background-repeat: no-repeat
+    position: relative
+    display: grid
+    grid-template-columns: 220px 1fr
+    grid-gap: 20px
+    padding-left: 50px
+    padding-top: 90px
+    padding-bottom: 90px
+    &::before, &::after
+        content: ''
+        position: absolute
+        display: block
+        width: 100%
+        left: 0
+        height: 170px
+        z-index: 2
+        pointer-events: none
+    &::before
+        top: 0
+        background: linear-gradient(180deg, black 5%, rgba(black, 0) 60%)
+    &::after
+        bottom: 0
+        background: linear-gradient(0deg, black 5%, rgba(black, 0) 60%)
+    &__sidebar
+        display: block
+    &__list
+        list-style: none
+    &__list-item
+        color: #798797
+        font-size: 18px
+        text-align: right
+        cursor: pointer
+        margin-bottom: 3px
+        &:first-child
+            font-size: 24px
+            font-weight: 700
+            color: #FFFFFF
+            opacity: .8
+    &__main
+        padding: 20px
+        background-image: linear-gradient(to right bottom, rgba(black, 0.7) 0%, rgba(black, .2) 100%)
+    &__icons-wrapper
+        overflow: hidden
+        display: flex
+    &__icons
+        flex: 1 0 auto
+        object-fit: cover
+        animation: slide 4.5s linear 0s infinite
+
+
+@media screen and ( max-width: 1500px )
+    .inventory
+        padding: 50px 20px
+        grid-template-columns: 150px 1fr
+
+@media screen and ( max-width: 1200px )
+    .inventory
+        grid-template-columns: min-content 1fr
+        &__icons
+            width: auto
+
+@media screen and ( max-width: 962px )
+    .inventory
+        &__icons-wrapper
+            height: 100%
+
+@media screen and ( max-width: 500px )
+    .inventory
+        grid-template-columns: 1fr
+        grid-template-rows: auto 400px
+        &__list-item
+            margin-top: 4px
+

@@ -1,0 +1,19 @@
+.chart
+    &__header
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding-bottom: 25px
+    &__dropdown
+        margin-left: 30px
+        width: auto
+
+@media screen and ( max-width: 465px )
+    .chart
+        padding: 10px
+        &__header
+            flex-direction: column
+        &__dropdown
+            align-self: flex-end
+            .custom-dropdown__trigger
+                padding-right: 0

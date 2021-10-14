@@ -1,0 +1,33 @@
+*, *::before, *::after
+    box-sizing: border-box
+    font-family: 'Lato', sans-serif
+    margin: 0
+    padding: 0
+
+img
+    display: block
+    max-width: 100%
+    &:not([src])
+        display: none
+
+a
+    text-decoration: none
+    color: inherit
+
+body, html
+    overflow-x: hidden
+    background-color: var(--body-bg-color)
+    scrollbar-width: thin
+    scrollbar-color: var(--text-white) var(--body-bg-color)
+    &::-webkit-scrollbar
+        width: 5px
+    &::-webkit-scrollbar-thumb
+        background-color: var(--text-white)
+    &::-webkit-scrollbar-track
+        background-color: var(--body-bg-color)
+
+.page
+    height: 100%
+
+#detach-button-host
+    display: none !important

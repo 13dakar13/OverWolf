@@ -1,0 +1,17 @@
+.subscribe-page
+    &__container
+        display: grid
+        grid-template-columns: 370px 1fr
+        grid-gap: 30px
+    &__small-title
+        margin-bottom: 22px
+    &__bottom
+        grid-column: 1 / 3
+
+@media screen and ( max-width: 720px )
+    .subscribe-page
+        &__container
+            grid-template-columns: 1fr
+        &__bottom
+            grid-column: 1 / 2
+

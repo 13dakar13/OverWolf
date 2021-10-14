@@ -1,0 +1,44 @@
+.buy-footer
+    display: flex
+    align-items: center
+    justify-content: space-between
+    &__content
+        display: grid
+        max-width: 660px
+        grid-column-gap: 20px
+        grid-template-columns: 56px 1fr
+    &__icon
+        order: 0
+        grid-row: 1 / 3
+    &__title
+        font-size: 18px
+        font-family: 'DaysOne'
+        background-clip: text !important
+        color: transparent
+        text-transform: uppercase
+        background: linear-gradient(to right, #00CCFF 0%, #FF4AF7 50%)
+    &__text
+        font-size: 14px
+        color: var(--text-white)
+    &__button
+        padding: 12px 16px
+        background-size: 100% 99%
+        background-image: url('~assets/img/gradients/hero-button-gradient.svg')
+        display: flex
+        align-items: center
+        svg, img
+            margin-right: 10px
+
+@media screen and ( max-width: 660px )
+    .buy-footer
+        flex-wrap: wrap
+        &__content
+            grid-template-columns: 1fr
+        &__icon
+            display: none
+        &__title
+            margin-bottom: 10px
+        &__button
+            margin: 20px auto 0px
+        &__chevrons
+            display: none

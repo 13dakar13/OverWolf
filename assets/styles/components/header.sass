@@ -1,0 +1,43 @@
+.header
+    flex-grow: 0
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    z-index: var(--overflow-z-index)
+    padding-top: 40px
+    transition: padding .3s ease-in-out 0s
+    &_reduced
+        padding-top: 15px
+    &::after
+        content: ''
+        display: block
+        position: absolute
+        width: 100%
+        top: 0
+        left: 0
+        z-index: -1
+        height: 210px
+        pointer-events: none
+        background: linear-gradient(180deg, black 0%, rgba(black, 0) 75%)
+    &__nav
+        margin: 0px 30px
+    &__wrap
+        display: flex
+        align-items: center
+        justify-content: space-between
+        --container-width: calc( 100vw - 50px )
+
+
+@media screen and ( max-width: 1200px )
+    .header
+        &__wrap
+            --container-width: auto
+
+@media screen and ( max-width: 1080px )
+    .header
+        padding-top: 10px
+        &__nav, &__login
+            display: none
+        &__burger
+            display: block !important

@@ -1,0 +1,56 @@
+@keyframes spin
+    0%
+        transform: translate(-50%, -50%) rotate(0deg)
+    100%
+        transform: translate(-50%, -50%) rotate(-360deg)
+
+
+.subscribe-reset
+    display: grid
+    grid-template-columns: 100px 370px 1fr
+    grid-gap: 25px
+    &__icon
+        width: 100%
+        padding-bottom: 100%
+        position: relative
+        background-repeat: no-repeat
+        background-position: center
+        background-size: 100px 100px
+        background-image: url(~/assets/img/icons/avatar-bg.svg)
+    &__icon-spin, &__icon-img
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+    &__icon-spin
+        width: 110%
+        height: 110%
+        animation: spin 3s linear 0s infinite
+        background-image: url(~/assets/img/rounded-spin.png)
+        background-position: center
+        background-size: contain
+        background-repeat: no-repeat
+    &__icon-img
+        max-width: 70%
+    &__text
+        border-left: 1px dashed rgba(white, 0.2)
+        padding-left: 25px
+        p
+            color: rgba(white, 0.5)
+            font-size: 14px
+        p + p
+            margin-top: 1em
+
+
+@media screen and ( max-width: 900px )
+    .subscribe-reset
+        grid-template-columns: 370px 1fr
+        &__icon
+            display: none
+
+@media screen and ( max-width: 720px )
+    .subscribe-reset
+        grid-template-columns: 1fr
+        &__text
+            padding-left: 0
+            border-left: none

@@ -1,0 +1,32 @@
+.switcher
+    --pin-position: flex-start
+    position: relative
+    height: 22px
+    width: 40px
+    display: flex
+    align-items: center
+    justify-content: var(--pin-position)
+    cursor: pointer
+    border: 1px solid #4E4E62
+    border-radius: 20px
+    padding: 2px
+    transition: all .2s ease-in-out 0s
+    user-select: none
+    background: linear-gradient(to right, #0F0D19 0%, #0F0D19 100%)
+    &_checked
+        --pin-position: flex-end
+        background: linear-gradient(to right, #482357 0%, #2B3158 100%)
+    &__input
+        opacity: 0
+        visibility: hidden
+        position: absolute
+    &__pin
+        transition: all .2s ease-in-out 0s
+        height: 16px
+        width: 16px
+        border-radius: 100%
+        display: block
+        background: linear-gradient(to right bottom, #7F6E88 0%, #6E6F83 100%)
+        &_checked
+            background: linear-gradient(to right bottom, #CB65F9 0%, #828AFB 100%)
+

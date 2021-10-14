@@ -1,0 +1,75 @@
+.section-title
+    display: flex
+    align-items: center
+    justify-content: center
+    color: var(--text-white)
+    text-align: center
+    text-transform: uppercase
+    font-family: 'DaysOne'
+    font-weight: 400
+    &_large
+        font-size: 44px
+    &_small
+        font-size: 20px
+    &__content
+        text-align: inherit
+        text-transform: inherit
+        font-family: inherit
+        font-size: inherit
+        font-weight: inherit
+        margin: 0 1em
+    &__deco
+        display: inline-block
+        height: 1.1em
+        width: 1em
+        position: relative
+        transform: rotateY(var(--y-rotation))
+        &::before, &::after
+            content: ''
+            position: absolute
+            font-size: inherit
+            top: 50%
+            left: 50%
+            display: block
+            width: 4px
+            border-radius: 3px
+        &::before
+            height: 25px
+            background-color: var(--main-blue)
+            transform: translate(0, -50%) rotateZ(-45deg)
+        &::after
+            height: 15px
+            background-color: var(--main-pink)
+            transform: translate(14px, calc( -2px - 50% )) rotateZ(-45deg)
+        &:nth-of-type(1)
+            --y-rotation: 0deg
+        &:nth-of-type(3)
+            --y-rotation: 180deg
+
+@media screen and ( max-width: 962px )
+    .section-title
+        &_large
+            font-size: 36px
+
+@media screen and ( max-width: 400px )
+    .section-title
+        &_large
+            font-size: 26px
+        &_small
+            font-size: 16px
+        &__content
+            margin: 0 .5em
+        &_large &__deco
+            &::before
+                height: 20px
+            &::after
+                height: 10px
+
+        &_small &__content
+            margin: 0 .8em
+        &_small &__deco
+            &::before
+                height: 16px
+            &::after
+                height: 7px
+

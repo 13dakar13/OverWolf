@@ -1,0 +1,39 @@
+.burger
+    display: none
+    width: 35px
+    height: 35px
+    border-radius: 5px
+    border: 1px solid var(--burger-color)
+    position: relative
+    --lines-offset: 7px
+    --line-rotation: 0deg
+    --line-opacity: 1
+    --transition-rules: top .2s ease-in-out .2s, transform .2s ease-in-out 0s, opacity .2s ease-in-out .2s
+    &__lines, &__lines::before, &__lines::after
+        position: absolute
+        height: 1px
+        background-color: var(--burger-color)
+        display: block
+        transition: var(--transition-rules)
+        left: 50%
+    &__lines
+        transform: translate(-50%, -50%) rotate(calc( var(--line-rotation) / 2 ))
+        width: 60%
+        top: 50%
+        &::before, &::after
+            content: ''
+            width: 100%
+        &::before
+            top: calc( calc(0px - var(--lines-offset)) + 50% )
+            transform: translate(-50%, -50%)
+            opacity: var(--line-opacity)
+        &::after
+            top: calc( var(--lines-offset) + 50% )
+            transform: translate(-50%, -50%) rotate(var(--line-rotation))
+    &_active
+        --lines-offset: 0px
+        --line-opacity: 0
+        --line-rotation: 90deg
+        --transition-rules: top .2s ease-in-out 0s, transform .2s ease-in-out .2s, opacity .2s ease-in-out 0s
+
+

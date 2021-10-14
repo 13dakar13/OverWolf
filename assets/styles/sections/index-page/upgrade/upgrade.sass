@@ -1,0 +1,104 @@
+.upgrade
+    min-height: 100vh
+    position: relative
+    padding-top: 110px
+    padding-bottom: 110px
+    &__bg
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        display: block
+        pointer-events: none
+        object-fit: cover
+    &__title
+        position: relative
+        z-index: 2
+        margin-bottom: 40px
+    &__container
+        width: 100%
+        position: relative
+        z-index: 2
+        display: grid
+        grid-template-columns: 1fr 1fr
+    &__hero
+        width: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+    &__hero-media
+        width: 130%
+        height: 130%
+        display: block
+        overflow: hidden
+        object-position: center
+        object-fit: cover
+    &__button
+        height: 63px
+        width: 63px
+        position: absolute
+        top: 50%
+        background-repeat: no-repeat
+        background-size: cover
+        background-image: url(~/assets/img/icons/slider-button.png)
+        --button-rotate: 0deg
+        &_left
+            left: 0
+        &_right
+            --button-rotate: 180deg
+
+            right: 0
+        &_left, &_right
+            --button-offset-x: 0%
+            --button-offset-y: -50%
+
+            transform: translate(var(--button-offset-x), var(--button-offset-y)) rotate(var(--button-rotate))
+
+
+@media screen and ( max-width: 1200px )
+    .upgrade
+        &__title
+            margin-bottom: 120px
+        &__hero-media
+            width: 160%
+            height: 160%
+
+
+@media screen and ( max-width: 1080px )
+    .upgrade
+        padding-top: 70px
+
+
+@media screen and ( min-width: 720px )
+    .upgrade
+        &__button
+            display: none
+
+@media screen and ( max-width: 720px )
+    .upgrade
+        padding-bottom: 70px
+        &__title
+            margin-bottom: 0px
+        &__container
+            display: flex
+        &__hero
+            flex: 1 1 0%
+            opacity: 0
+            transition: .4s ease-in-out 0s
+            &_active
+                opacity: 1
+                flex: 1 0 100%
+        &__hero-media
+            width: 130%
+            height: 130%
+
+
+@media screen and ( max-width: 720px )
+    .upgrade
+        &__title
+            margin-bottom: 100px
+        &__hero-media
+            width: 150%
+            height: 220%
+
