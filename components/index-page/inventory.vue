@@ -41,7 +41,21 @@
         >
       </div>
 
-      <div class="inventory__icons-wrapper" v-else>
+      <div class="inventory__icons-wrapper inventory__icons-wrapper_column " v-else>
+        <ul
+          class="inventory__groups"
+          :class="`inventory__groups_${activeItemIndex}`"
+        >
+          <li
+            class="inventory__group-item"
+
+            v-for="group in filterItem[activeItemIndex].groups"
+            :key="group"
+          >
+            {{ group }}
+          </li>
+        </ul>
+
         <img
           :src="reqiredImage"
           alt="icons"
@@ -66,6 +80,12 @@ export default {
           title: 'Audio',
           isActive: false,
           isAnimating: false,
+          groups: [
+            'Озвучка',
+            'Мега-Убийства',
+            'Комментаторы',
+            'Музыка',
+          ]
         },
         {
           title: 'Interface',
@@ -76,11 +96,21 @@ export default {
           title: 'World',
           isActive: false,
           isAnimating: false,
+          groups: [
+            'Ландшафт',
+            'Крипы',
+            'Башни',
+            'Погодные эффекты',
+          ]
         },
         {
           title: 'Other',
           isActive: false,
           isAnimating: false,
+          groups: [
+            'Инструменты',
+            'Прочее',
+          ]
         },
       ],
     }
@@ -95,7 +125,7 @@ export default {
       return this.filterItem.findIndex(item => item.isActive === true);
     },
     reqiredImage(){
-      return require(`~/assets/img/inventory/${this.activeItemIndex + 1}/icons.png`)
+      return require(`~/assets/img/inventory/${this.activeItemIndex + 1}/icons.webp`)
     }
   },
 }

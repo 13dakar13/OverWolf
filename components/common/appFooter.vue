@@ -3,6 +3,7 @@
     class="footer"
     :class="{
       'footer_reduced': isReduced,
+      'footer_inner': inner,
     }"
   >
     <div class="container footer__wrap">

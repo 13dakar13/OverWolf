@@ -23,6 +23,7 @@
         transition: all .3s ease-in-out 0s
         &_referal
             position: static
+            pointer-events: none
             transform: none
             margin-top: 20px
             opacity: 1 !important
@@ -31,7 +32,48 @@
         &:not(.active)
             opacity: 0
             visibility: hidden !important
-
+    &__subtitle
+        text-align: center
+        font-size: 18px
+        text-align: center
+        display: block
+        font-weight: 400
+        margin-bottom: 10px
+        padding: 0px 40px
+    &__buttons-row
+        display: flex
+        align-items: center
+        justify-content: center
+        margin-top: 25px
+        column-gap: 20px
+    &__animations-button
+        width: 90px
+        border-radius: 5px
+        span
+            width: 100%
+            padding: .6em 1em
+        &_confirm
+            span
+                background-color: #181721
+                transition: background-color .3s ease-in-out 0s
+            &::before
+                top: -1px
+                left: -1px
+                width: calc(100% + 2px)
+                height: calc(100% + 2px)
+                position: absolute
+                content: ''
+                display: block
+                z-index: -1
+                background-image: linear-gradient(to right, #17A9E1 0%, #FF4AF7 100%)
+                border-radius: inherit
+            &:hover
+                span
+                    background-color: transparent
+        &_cancel
+            border: 1px solid var(--text-invalid)
+            &:hover
+                background-color: var(--text-invalid)
     &__main
         padding: 25px
         background-repeat: no-repeat

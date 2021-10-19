@@ -19,11 +19,11 @@
       <div
         class="enjoy__video-container"
 
-        v-for="videoItem in videos"
-        :key="videoItem"
+        v-for="mediaItem in media"
+        :key="mediaItem.video"
       >
         <video
-          :src="videoItem"
+          :src="mediaItem.video"
           class="enjoy__video"
 
           preload="meta"
@@ -32,8 +32,14 @@
           muted
           loop
 
-          v-show="isVideosShown"
+          v-show="isVideosShown && isAnimationsEnabled"
         />
+
+        <img
+          :src="mediaItem.image"
+          alt="Наслаждайся Игрой"
+          class="enjoy__video"
+        >
       </div>
 
       <div
@@ -50,6 +56,7 @@
 
 <script>
 import sectionTitle from '@/components/common/sectionTitle.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   props: {
@@ -67,9 +74,16 @@ export default {
       minValue: 0,
       maxValue: 100,
       slidePercentage: 50,
-      videos: [
-        require('~/assets/video/enjoy/right-compare.webm'),
-        require('~/assets/video/enjoy/left-compare.webm'),
+      maxSliderPercent: 95,
+      media: [
+        {
+          video: require('~/assets/video/enjoy/right-compare.webm'),
+          image: require('~/assets/img/enjoy/right-compare.webp'),
+        },
+        {
+          video: require('~/assets/video/enjoy/left-compare.webm'),
+          image: require('~/assets/img/enjoy/left-compare.webp'),
+        },
       ]
     }
   },
@@ -79,6 +93,8 @@ export default {
 
     document.addEventListener('mouseup', this.handleMouseUp);
     document.addEventListener('touchend',this.handleMouseUp);
+
+    window.addEventListener('resize', () => this.maxSliderPercent = window.innerWidth >= 720 ? 95 : 85);
   },
   methods: {
     constrain(val, min, max){
@@ -107,9 +123,14 @@ export default {
 
         const knobLeftPersentage = (clickX / window.innerWidth) * 100;
 
-        this.slidePercentage = this.constrain(knobLeftPersentage, 2, 85);
+        this.slidePercentage = this.constrain(knobLeftPersentage, 2, this.maxSliderPercent);
       }
     },
   },
+  computed: {
+    ...mapGetters({
+      isAnimationsEnabled: 'user/getAnimationsStatus'
+    }),
+  }
 }
 </script>

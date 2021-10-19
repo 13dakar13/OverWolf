@@ -44,7 +44,7 @@
             background-image: linear-gradient(90deg, rgba(0,204,255,1) 0%, rgba(255,74,247,1) 100%)
             opacity: 0
             transition: opacity .2s ease-in-out
-            box-shadow: 0 5px 25px rgba(255, 74, 247, .4)
+            box-shadow: 0 3px 20px rgba(255, 74, 247, .4)
         &:hover
             &::after
                 opacity: 1
@@ -52,22 +52,22 @@
         span
             background-color: black
         &:hover
-            box-shadow: 0 5px 20px rgba(#623fdf, .8)
+            box-shadow: 0 3px 15px rgba(#623fdf, .8)
     &_bg-dark
         span
             background-color: var(--dark-blue-purple)
         &:hover
-            box-shadow: 0 5px 20px rgba(#623fdf, .8)
+            box-shadow: 0 3px 15px rgba(#623fdf, .8)
     &_bg-darker
         span
             background-image: linear-gradient(to right, #0B0C17 0%, #0F0B13 100%)
         &:hover
-            box-shadow: 0 5px 25px rgba(#623fdf, .8)
+            box-shadow: 0 2px 15px rgba(#623fdf, .8)
     &_bg-mid-darker
         span
             background-color: #19192c
         &:hover
-            box-shadow: 0 5px 25px rgba(#623fdf, .8)
+            box-shadow: 0 2px 20px rgba(#623fdf, .8)
     &_gradient-border
         &::before
             content: ''
@@ -84,9 +84,14 @@
         span
             background: linear-gradient(261deg, #3E487E 0%, #68327D 100%)
         &:hover
-            box-shadow: 0 5px 20px rgba(#b43fdf, .8)
+            box-shadow: 0 2px 17px rgba(#b43fdf, .8)
+    &_bg-gradient-dark-reversed
+        span
+            background: linear-gradient(261deg, #68327D 0%, #3E487E 100%)
+        &:hover
+            box-shadow: 0 2px 17px rgba(#b43fdf, .8)
     &_bg-gradient-light
         span
             background: linear-gradient(261deg, #5865B2 0%, #9247AF 100%)
         &:hover
-            box-shadow: 0 5px 20px rgba(#b43fdf, .8)
+            box-shadow: 0 3px 15px rgba(#b43fdf, .8)

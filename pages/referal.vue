@@ -68,7 +68,7 @@
           </app-button>
 
           <app-button
-            @click.native="isReferalCreated = true"
+            @click.native="isReferalCreated = !!referalCode"
             class="button_gradient-border button_bg-gradient-dark button_fullwidth referal-page__button"
           >
             Создать промокод

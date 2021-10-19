@@ -40,7 +40,7 @@
       </span>
 
       <app-button
-        class="buy-card__button button_gradient-border button_bg-gradient button_bg-gradient-dark"
+        class="buy-card__button button_gradient-border button_bg-gradient-dark button_bg-gradient-dark-reversed"
 
         @click="$emit('buy-button-click')"
       >

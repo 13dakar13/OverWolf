@@ -55,7 +55,7 @@
 
         class="button_gradient-border button_bg-black button_fullwidth popup__button popup__register"
       >
-        Зарегестрироваться
+        Зарегистрироваться
       </app-button>
     </footer>
     <app-button

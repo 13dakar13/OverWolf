@@ -50,6 +50,14 @@
 
       />
     </popup-component>
+
+    <popup-component
+      :is-open="animationsConfirmPopup"
+    >
+      <animation-confirm-popup
+        @animations-state-change="changeAnimationsState($event)"
+      />
+    </popup-component>
   </div>
 </template>
 
@@ -62,11 +70,15 @@ import registerPopupComponent from '@/components/common/popup/registerPopup.vue'
 import recoveryPopupComponent from '@/components/common/popup/recoveryPopup.vue';
 import errorPopupComponent from '@/components/common/popup/errorPopup.vue';
 import successPopupComponent from '@/components/common/popup/successPopup.vue';
+import animationConfirmPopup from '@/components/common/popup/animationConfirmPopup.vue';
+
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   data(){
     return {
       isReducedControls: false,
+      animationsConfirmPopup: true,
       popups: {
         login: {
           isOpen: false,
@@ -98,6 +110,14 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      setAnimationsStatus: 'user/setAnimationsStatus'
+    }),
+    changeAnimationsState(state){
+      this.animationsConfirmPopup = false;
+
+      this.setAnimationsStatus(state);
+    },
     scrollHandler(){
       const scroll = window.scrollY;
       const breakpoint = 30;
@@ -118,6 +138,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      isAnimationsEnabled: 'user/getAnimationsStatus'
+    }),
     isAnyPopupOpen(){
       return Object.values(this.popups)
         .some(popup => popup.isOpen);
@@ -129,6 +152,7 @@ export default {
     popupComponent,
     errorPopupComponent,
     loginPopupComponent,
+    animationConfirmPopup,
     successPopupComponent,
     registerPopupComponent,
     recoveryPopupComponent,
