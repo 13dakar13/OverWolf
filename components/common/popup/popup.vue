@@ -7,9 +7,7 @@
 
     @click.self="closePopup()"
   >
-    <div class="popup__container text-color-white">
-      <slot></slot>
-    </div>
+    <slot></slot>
   </div>
 </template>
 

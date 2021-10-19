@@ -11,7 +11,6 @@
 
       v-if="!isDefault"
     >
-      <!-- TODO: implement icons -->
       <img
         :src="iconPath"
         alt="icon"

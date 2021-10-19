@@ -22,7 +22,7 @@
         :chart-data="datacollection"
         :options="chartOptions"
         :styles="styles"
-        :height="250"
+        :height="240"
       />
     </main>
   </article>
@@ -38,7 +38,7 @@ export default {
     title: {
       type: String,
       default: '',
-    }
+    },
   },
   data(){
     return {
@@ -53,8 +53,20 @@ export default {
       styles: {},
       chartOptions: {
         legend: {
-          display: false
+          display: false,
         },
+        scales: {
+          xAxes: [{
+            ticks: {
+              fontColor: '#4F4C70'
+            },
+          }],
+          yAxes: [{
+            ticks: {
+              fontColor: '#794C6D'
+            },
+          }],
+        }
       }
     }
   },
@@ -90,6 +102,7 @@ export default {
           'СБ',
           'ВС',
         ],
+
         datasets: [{
           backgroundColor: fillGradient,
           borderColor: borderGradient,

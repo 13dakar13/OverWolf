@@ -6,6 +6,9 @@
           @click="changeActiveSlide(index)"
 
           class="inventory__list-item"
+          :class="{
+            'inventory__list-item_active': index === activeItemIndex,
+          }"
 
           v-for="(item, index) in filterItem"
           :key="item.title"
@@ -16,24 +19,33 @@
     </aside>
 
     <main class="inventory__main">
-      <div class="inventory__icons-wrapper">
+      <div
+        class="inventory__icons-wrapper"
+
+        v-if="filterItem[activeItemIndex].isAnimating"
+      >
         <img
-          :src="require(`~/assets/img/inventory/${activeItemIndex + 1}/icons.png`)"
+          :src="reqiredImage"
           alt="icons"
-          class="inventory__icons"
-          loading="lazy"
+          class="inventory__icons inventory__icons_animated"
         >
         <img
-          :src="require(`~/assets/img/inventory/${activeItemIndex + 1}/icons.png`)"
+          :src="reqiredImage"
           alt="icons"
-          class="inventory__icons"
-          loading="lazy"
+          class="inventory__icons inventory__icons_animated"
         >
         <img
-          :src="require(`~/assets/img/inventory/${activeItemIndex + 1}/icons.png`)"
+          :src="reqiredImage"
+          alt="icons"
+          class="inventory__icons inventory__icons_animated"
+        >
+      </div>
+
+      <div class="inventory__icons-wrapper" v-else>
+        <img
+          :src="reqiredImage"
           alt="icons"
           class="inventory__icons"
-          loading="lazy"
         >
       </div>
     </main>
@@ -48,22 +60,27 @@ export default {
         {
           title: 'All',
           isActive: true,
+          isAnimating: true,
         },
         {
           title: 'Audio',
           isActive: false,
+          isAnimating: false,
         },
         {
           title: 'Interface',
           isActive: false,
+          isAnimating: true,
         },
         {
           title: 'World',
           isActive: false,
+          isAnimating: false,
         },
         {
           title: 'Other',
           isActive: false,
+          isAnimating: false,
         },
       ],
     }
@@ -76,6 +93,9 @@ export default {
   computed: {
     activeItemIndex(){
       return this.filterItem.findIndex(item => item.isActive === true);
+    },
+    reqiredImage(){
+      return require(`~/assets/img/inventory/${this.activeItemIndex + 1}/icons.png`)
     }
   },
 }

@@ -38,15 +38,20 @@
         list-style: none
     &__list-item
         color: #798797
-        font-size: 18px
+        font-size: 22px
         text-align: right
         cursor: pointer
         margin-bottom: 3px
+        transition: .25s ease-in-out 0s
         &:first-child
-            font-size: 24px
+            font-size: 32px
             font-weight: 700
-            color: #FFFFFF
-            opacity: .8
+            color: var(--text-white)
+            opacity: .7
+        &_active
+            font-weight: 700
+            opacity: 1 !important
+            color: var(--text-white)
     &__main
         padding: 20px
         background-image: linear-gradient(to right bottom, rgba(black, 0.7) 0%, rgba(black, .2) 100%)
@@ -54,9 +59,10 @@
         overflow: hidden
         display: flex
     &__icons
-        flex: 1 0 auto
         object-fit: cover
-        animation: slide 4.5s linear 0s infinite
+        &_animated
+            flex: 1 0 auto
+            animation: slide 7s linear 0s infinite
 
 
 @media screen and ( max-width: 1500px )

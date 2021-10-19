@@ -6,12 +6,11 @@
     }"
   >
     <h3 class="buy-card__title">
-      <div
+      <img
+        :src="require(`~/assets/img/days_${index + 1}.png`)"
+        alt="дней"
         class="buy-card__days-number"
-        :data-content="days"
       >
-        {{ days }}
-      </div>
 
       <div class="buy-card__days">
         дней
@@ -62,6 +61,10 @@ export default {
     },
     days: {
       type: [Number, String],
+      default: 0,
+    },
+    index: {
+      type: Number,
       default: 0,
     },
     gradientColor: {

@@ -12,65 +12,40 @@
     </div>
 
     <app-footer
+      inner
 
       class="layout__footer"
     />
 
     <popup-component
-      @close-popup="closePopup(popups.login)"
-
-      :is-open="popups.login.isOpen"
+      :is-open="isAnyPopupOpen"
+      @close-popup="closeAllPopups()"
     >
       <login-popup-component
-        @close-popup="closePopup(popups.login)"
         @open-register-popup="openPopup(popups.register)"
         @open-recovery-popup="openPopup(popups.recovery)"
 
+        :is-open="popups.login.isOpen"
       />
-    </popup-component>
 
-    <popup-component
-      @close-popup="closePopup(popups.register)"
-
-      :is-open="popups.register.isOpen"
-    >
       <register-popup-component
-        @close-popup="closePopup(popups.register)"
+        :is-referal-open="true"
 
+        :is-open="popups.register.isOpen"
       />
 
-      <referal-popup-component
-        v-if="popups.referal.isOpen"
-      />
-    </popup-component>
-
-    <popup-component
-      @close-popup="closePopup(popups.recovery)"
-
-      :is-open="popups.recovery.isOpen"
-    >
       <recovery-popup-component
-        @close-popup="closePopup(popup.recovery)"
+        :is-open="popups.recovery.isOpen"
 
       />
-    </popup-component>
 
-    <popup-component
-      @close-popup="closePopup(popups.error)"
-
-      :is-open="popups.error.isOpen"
-    >
       <error-popup-component
+        :is-open="popups.error.isOpen"
 
       />
-    </popup-component>
 
-    <popup-component
-      @close-popup="closePopup(popups.success)"
-
-      :is-open="popups.success.isOpen"
-    >
       <success-popup-component
+        :is-open="popups.success.isOpen"
 
       />
     </popup-component>
@@ -107,22 +82,28 @@ export default {
         error: {
           isOpen: false,
         },
-        referal: {
-          isOpen: false,
-        },
       },
     }
   },
   methods: {
     openPopup(popup){
-      Object.values(this.popups)
-        .forEach(popup => popup.isOpen = false);
+      this.closeAllPopups();
 
       popup.isOpen = true;
     },
     closePopup(popup){
       popup.isOpen = false;
     },
+    closeAllPopups(){
+      Object.values(this.popups)
+        .forEach(popup => this.closePopup(popup));
+    }
+  },
+  computed: {
+    isAnyPopupOpen(){
+      return Object.values(this.popups)
+        .some(popup => popup.isOpen);
+    }
   },
   components: {
     appHeader,

@@ -1,6 +1,6 @@
 .buy-card
     padding: 75px 25px 20px
-    background: radial-gradient(153% 95% at 50% 6%, var(--buy-card-gradient-color) 28%, rgba(0, 0, 0, 0) 100%), black
+    background: radial-gradient(153% 95% at 50% 6%, var(--buy-card-gradient-color) 30%, rgba(0, 0, 0, 0) 75%), black
     &__title
         color: var(--text-white)
         text-align: center
@@ -12,22 +12,15 @@
         left: 50%
         transform: translate(-50%, -50%)
     &__days-number
-        font-weight: 700
-        font-size: 64px
-        line-height: 100%
-        margin-bottom: 10px
-        font-family: 'DaysOne'
-        background-clip: text !important
-        -webkit-text-fill-color: transparent
-        color: var(--text-white)
-        background: linear-gradient(to bottom, var(--text-white) 0%, var(--buy-card-gradient-color) 100%)
+        margin: 0 auto 10px
         position: relative
-        z-index: 1
+        z-index: 2
     &__days
         font-weight: 400
         text-transform: uppercase
     &__item
         color: var(--text-white)
+        opacity: .65
         & + &
             margin-top: 17px
     &__list

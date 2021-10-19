@@ -4,10 +4,22 @@
         flex-direction: column
         align-items: center
         padding-bottom: 35px
-        background-image: url(~/assets/img/icons/setting-bg.svg)
-        background-size: cover
-        background-position: center top
-        background-repeat: no-repeat
+        background-image: linear-gradient(to right, #16182D 0%, #201627, 100%)
+        overflow: hidden
+        position: relative
+        &::after
+            background-image: url(~/assets/img/icons/setting-bg.svg)
+            background-size: contain
+            background-position: center top
+            background-repeat: no-repeat
+            content: ''
+            display: block
+            width: 100%
+            height: 100%
+            position: absolute
+            top: 0
+            left: 0
+            pointer-events: none
     &__username, &__status
         color: var(--text-white)
         text-align: center
@@ -26,6 +38,21 @@
         background-image: url(~/assets/img/icons/avatar-bg.svg)
         background-position: center
         background-repeat: no-repeat
+        position: relative
+        &::after
+            content: ''
+            display: block
+            width: 110%
+            height: 110%
+            background-image: url(~/assets/img/rounded-spin.png)
+            background-position: center
+            background-size: contain
+            background-repeat: no-repeat
+            position: absolute
+            top: 50%
+            left: 50%
+            animation: spin 3s linear 0s infinite
+            transform: translate(-50%, -50%)
     &__button
         span
             padding: 12px 16px
@@ -33,13 +60,20 @@
     &__main
         display: flex
         flex-direction: row
+        padding-top: 0 !important
+        padding-bottom: 0 !important
+        background: linear-gradient(0deg, rgba(black, 0.2), rgba(black, 0.2)), linear-gradient(260.4deg, rgba(129, 25, 124, 0.2) -12%, rgba(black, 0) 51%), linear-gradient(110deg, rgba(7, 49, 196, 0.2) -21%, rgba(black, 0) 84%), #181721
     &__block
         display: flex
         flex-direction: column
         height: 100%
         flex-basis: 50%
+        padding-top: 25px
+        padding-bottom: 25px
         & + &
             margin-left: 30px
+            padding-left: 30px
+            border-left: 1px dashed rgba(255, 255, 255, 0.1)
     &__small-title
         margin-bottom: 25px
     &__input-wrap

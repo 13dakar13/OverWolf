@@ -56,6 +56,9 @@ export default {
 
       return `${day}.${month}.${year}`
     },
+    constrain(val, min, max){
+      return val > max ? max : val < min ? min : val;
+    },
   },
   computed: {
     cEndDate(){
@@ -75,7 +78,7 @@ export default {
       const startMilliseconds = Date.parse(this.startDate);
       const endMilliseconds = Date.parse(this.endDate);
 
-      return ((currMilliseconds - startMilliseconds) / (endMilliseconds - startMilliseconds));
+      return this.constrain((currMilliseconds - startMilliseconds) / (endMilliseconds - startMilliseconds), 0, 1);
     }
   },
 }

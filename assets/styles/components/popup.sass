@@ -8,22 +8,30 @@
     z-index: calc( var(--overflow-z-index) + 3 )
     backdrop-filter: blur(5px)
     transition: opacity .3s ease-in-out 0s, visibility .3s ease-in-out 0s
-    --container-translate: 0px
+    --content-translate: 0px
     &:not(.active)
         opacity: 0
         visibility: hidden
-        --container-translate: 25px
-    &__container
+        --content-translate: 25px
+    &__content
         position: absolute
         top: 50%
         left: 50%
-        transform: translate(-50%, calc( var(--container-translate) - 50% ))
-        transition: transform .3s ease-in-out 0s
         width: calc( 100% - 20px )
         max-width: 360px
-    &__content
+        transform: translate(-50%, calc(var(--content-translate) - 50%))
+        transition: all .3s ease-in-out 0s
         &_referal
+            position: static
+            transform: none
             margin-top: 20px
+            opacity: 1 !important
+            visibility: visible !important
+            width: 100%
+        &:not(.active)
+            opacity: 0
+            visibility: hidden !important
+
     &__main
         padding: 25px
         background-repeat: no-repeat
@@ -68,6 +76,11 @@
     &__button
         span
             padding: 12px
+    &__input
+        &_referal
+            input
+                color: rgba(white, .75)
+                letter-spacing: .4em
     &__input-group
         margin-bottom: 15px
         .popup__input
@@ -85,8 +98,9 @@
         color: rgba(white, .5)
     &__small-text
         font-size: 13px
-        color: #fefefe
+        color: var(--text-white)
         text-align: center
+        opacity: .7
     &__footer
         background-color: black
         padding: 20px 25px

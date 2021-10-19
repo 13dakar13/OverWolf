@@ -11,6 +11,7 @@
         <buy-card
 
           class="buy__card"
+          :index="index"
           :days="tariffItem.days"
           :features="tariffItem.features"
           :price="tariffItem.price"

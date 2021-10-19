@@ -10,15 +10,15 @@
         display: block
         width: 100%
         left: 0
-        height: 230px
-        z-index: 2
+        height: 500px
+        z-index: 3
         pointer-events: none
     &::before
         top: 0
-        background: linear-gradient(180deg, black 5%, rgba(black, 0) 60%)
+        background: linear-gradient(to bottom,  rgba(black, 1) 0%, rgba(black, 0) 60%)
     &::after
         bottom: 0
-        background: linear-gradient(0deg, black 5%, rgba(black, 0) 60%)
+        background: linear-gradient(to top, rgba(black, 1) 0%, rgba(black, 0) 60%)
     &__title
         z-index: 6
         position: relative
@@ -56,14 +56,34 @@
         position: absolute
         top: 50%
         left: var(--divider-offset)
-        background-image: linear-gradient(to top, #8F83FA 0%, #FF4AF7 100%)
+        background-image: linear-gradient(to top, #7F8093 0%, #8F83FA 15%, #FF4AF7 35%, #8F83FA 80%)
+        &::before, &::after
+            content: ''
+            display: block
+            width: 50px
+            height: 133px
+            background-repeat: no-repeat
+            background-size: contain
+            background-position: center
+            position: absolute
+            left: 0
+        &::before
+            top: 0
+            transform: translate(-75%, 100%) rotate(calc( 0deg - var(--skew-angle) - 5deg ))
+            background-image: url(~/assets/img/icons/enjoy-top-lines.png)
+        &::after
+            bottom: 0
+            transform: translate(-85%, -100%) rotate(calc( 0deg - var(--skew-angle) - 5deg ))
+            background-image: url(~/assets/img/icons/enjoy-bottom-lines.png)
     &__drag
-        width: 42px
-        height: 42px
+        --size: 46px
+        width: var(--size)
+        height: var(--size)
         border-radius: 100%
         background-image: url(~/assets/img/icons/drag-button.png)
         background-repeat: no-repeat
         background-size: cover
+        background-position: center
         position: absolute
         z-index: 2
         top: 50%

@@ -29,7 +29,7 @@
             />
           </div>
         </main>
-        <footer class="inner-page__block-footer">
+        <footer class="inner-page__block-footer inner-page__block-footer_dark">
           <form
             @submit.prevent="submitReferalCode()"
 
@@ -105,7 +105,7 @@
             class="subscribe-registration__slider"
           />
         </main>
-        <footer class="inner-page__block-footer subscribe-registration__footer">
+        <footer class="inner-page__block-footer inner-page__block-footer_dark subscribe-registration__footer">
           <div class="subscribe-registration__row">
             <span class="subscribe-registration__days">
               {{chosenDaysText}}

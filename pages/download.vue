@@ -28,11 +28,15 @@
           </div>
 
           <ol class="download-step__list download-step__list_mb">
-            <li class="download-step__list-item download-step__text">
-              Скачайте и запустите наш установщик.
+            <li class="download-step__list-item">
+              <p class="download-step__text">
+                Скачайте и запустите наш установщик.
+              </p>
             </li>
-            <li class="download-step__list-item download-step__text">
-              Следуйте указаниям установщика, он автоматически установит нужное ПО, выберет папку, и создаст иконку чита на рабочем столе.
+            <li class="download-step__list-item">
+              <p class="download-step__text">
+                Следуйте указаниям установщика, он автоматически установит нужное ПО, выберет папку, и создаст иконку чита на рабочем столе.
+              </p>
             </li>
           </ol>
         </main>
@@ -66,17 +70,25 @@
         </div>
 
         <ol class="download-step__list">
-          <li class="download-step__list-item download-step__text">
-            Найдите на рабочем столе иконку приложения и запустите его.
+          <li class="download-step__list-item">
+            <p class="download-step__text">
+              Найдите на рабочем столе иконку приложения и запустите его.
+            </p>
           </li>
-          <li class="download-step__list-item download-step__text">
-            Авторизуйтесь под своими данными (логин и пароль аналогичны логину и паролю от сайта, или от uc.zone).
+          <li class="download-step__list-item">
+            <p class="download-step__text">
+              Авторизуйтесь под своими данными (логин и пароль аналогичны логину и паролю от сайта, или от uc.zone).
+            </p>
           </li>
-          <li class="download-step__list-item download-step__text">
-            После авторизации выберите в лоадере Umbrella cheat [DotA2] [Public Build] и нажмите Launch DotA 2 (если такого пункта нет, то у вас скорее всего кончилась подписка).
+          <li class="download-step__list-item">
+            <p class="download-step__text">
+              После авторизации выберите в лоадере Umbrella cheat [DotA2] [Public Build] и нажмите Launch DotA 2 (если такого пункта нет, то у вас скорее всего кончилась подписка).
+            </p>
           </li>
-          <li class="download-step__list-item download-step__text">
-            Лаунчер сам запустит доту и появится меню чита.
+          <li class="download-step__list-item">
+            <p class="download-step__text">
+              Лаунчер сам запустит доту и появится меню чита.
+            </p>
           </li>
         </ol>
       </article>

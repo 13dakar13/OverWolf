@@ -19,56 +19,34 @@
     />
 
     <popup-component
-      @close-popup="closePopup(popups.login)"
-
-      :is-open="popups.login.isOpen"
+      :is-open="isAnyPopupOpen"
+      @close-popup="closeAllPopups()"
     >
       <login-popup-component
         @open-register-popup="openPopup(popups.register)"
         @open-recovery-popup="openPopup(popups.recovery)"
 
+        :is-open="popups.login.isOpen"
       />
-    </popup-component>
 
-    <popup-component
-      @close-popup="closePopup(popups.register)"
-
-      :is-open="popups.register.isOpen"
-    >
       <register-popup-component
+        :is-referal-open="true"
 
+        :is-open="popups.register.isOpen"
       />
-      <referal-popup-component
-        v-if="popups.referal.isOpen"
-      />
-    </popup-component>
 
-    <popup-component
-      @close-popup="closePopup(popups.recovery)"
-
-      :is-open="popups.recovery.isOpen"
-    >
       <recovery-popup-component
+        :is-open="popups.recovery.isOpen"
 
       />
-    </popup-component>
 
-    <popup-component
-      @close-popup="closePopup(popups.error)"
-
-      :is-open="popups.error.isOpen"
-    >
       <error-popup-component
+        :is-open="popups.error.isOpen"
 
       />
-    </popup-component>
 
-    <popup-component
-      @close-popup="closePopup(popups.success)"
-
-      :is-open="popups.success.isOpen"
-    >
       <success-popup-component
+        :is-open="popups.success.isOpen"
 
       />
     </popup-component>
@@ -84,7 +62,6 @@ import registerPopupComponent from '@/components/common/popup/registerPopup.vue'
 import recoveryPopupComponent from '@/components/common/popup/recoveryPopup.vue';
 import errorPopupComponent from '@/components/common/popup/errorPopup.vue';
 import successPopupComponent from '@/components/common/popup/successPopup.vue';
-import referalPopupComponent from '@/components/common/popup/referalPopup.vue';
 
 export default {
   data(){
@@ -104,9 +81,6 @@ export default {
           isOpen: false,
         },
         error: {
-          isOpen: false,
-        },
-        referal: {
           isOpen: false,
         },
       },
@@ -131,14 +105,23 @@ export default {
       this.isReducedControls = scroll >= breakpoint;
     },
     openPopup(popup){
-      Object.values(this.popups)
-        .forEach(popup => popup.isOpen = false);
+      this.closeAllPopups();
 
       popup.isOpen = true;
     },
     closePopup(popup){
       popup.isOpen = false;
     },
+    closeAllPopups(){
+      Object.values(this.popups)
+        .forEach(popup => this.closePopup(popup));
+    }
+  },
+  computed: {
+    isAnyPopupOpen(){
+      return Object.values(this.popups)
+        .some(popup => popup.isOpen);
+    }
   },
   components: {
     appHeader,
@@ -147,7 +130,6 @@ export default {
     errorPopupComponent,
     loginPopupComponent,
     successPopupComponent,
-    referalPopupComponent,
     registerPopupComponent,
     recoveryPopupComponent,
   }

@@ -26,7 +26,7 @@
           </div>
         </main>
 
-        <footer class="inner-page__block-footer">
+        <footer class="inner-page__block-footer inner-page__block-footer_dark">
           <app-button
             class="button_gradient-border button_bg-darker settings__button button_fullwidth"
           >
@@ -73,7 +73,7 @@
 
           <div class="settings__button-wrap">
             <app-button
-              class="button_gradient-border button_bg-darker settings__button"
+              class="button_gradient-border button_bg-mid-darker settings__button"
             >
               Сменить пароль
             </app-button>

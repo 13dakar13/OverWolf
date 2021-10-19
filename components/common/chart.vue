@@ -21,18 +21,7 @@ export default {
     }
   },
   mounted() {
-    // this.$refs.canvas.id = `line-chart-${Math.random() * 10}`;
-
-    const optionsWithGradient = {
-      ...this.options,
-      // elements: {
-      //   line: {
-      //     backgroundColor: this.gradient,
-      //   },
-      // },
-    }
-
-    this.renderChart(this.chartData, optionsWithGradient);
+    this.renderChart(this.chartData, this.options);
   }
 }
 </script>

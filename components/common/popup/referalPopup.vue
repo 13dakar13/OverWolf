@@ -1,5 +1,5 @@
 <template>
-  <div class="popup__content popup__content_referal">
+  <div class="popup__content popup__content_referal active">
     <div class="popup__main popup__main_full popup__main_referal">
       <img src="~/assets/img/referal-popup-bg.png" alt="bg" class="popup__bg">
 

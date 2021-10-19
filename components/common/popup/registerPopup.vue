@@ -1,5 +1,10 @@
 <template>
-  <div class="popup__content">
+  <div
+    class="popup__content"
+    :class="{
+      'active': isOpen,
+    }"
+  >
     <div class="popup__main popup__main_register popup__main_default">
       <section-title
         class="popup__title"
@@ -47,10 +52,19 @@
       </form>
     </div>
     <footer class="popup__footer">
-      <div class="popup__input-group">
+      <div class="popup__input-group" v-if="!isReferalOpen">
         <app-input
           placeholder="Промокод (Не обязательно)"
           class="popup__input"
+        />
+      </div>
+
+      <div class="popup__input-group" v-else>
+        <app-input
+          placeholder="Промокод (Не обязательно)"
+          value="PREPE13"
+          class="popup__input popup__input_referal"
+          :is-tip-shown="isReferalOpen"
         />
       </div>
 
@@ -60,6 +74,10 @@
         Зарегестрироваться
       </app-button>
     </footer>
+
+    <referal-popup-component
+      v-if="isReferalOpen"
+    />
   </div>
 </template>
 
@@ -68,10 +86,21 @@ import sectionTitle from '@/components/common/sectionTitle.vue';
 import appButton from '@/components/common/appButton.vue';
 import appInput from '@/components/common/input/appInput.vue';
 import appCheckbox from '@/components/common/input/appCheckbox.vue';
+import referalPopupComponent from '@/components/common/popup/referalPopup.vue';
 
 import { INPUT_TYPES } from '@/constants.js';
 
 export default {
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: false,
+    },
+    isReferalOpen: {
+      type: Boolean,
+      default: false,
+    }
+  },
   data(){
     return {
       INPUT_TYPES: {...INPUT_TYPES},
@@ -87,6 +116,7 @@ export default {
     appButton,
     appCheckbox,
     sectionTitle,
+    referalPopupComponent,
   },
 }
 </script>

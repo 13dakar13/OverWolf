@@ -1,5 +1,10 @@
 <template>
-  <div class="popup__content">
+  <div
+    class="popup__content"
+    :class="{
+      'active': isOpen,
+    }"
+  >
     <div class="popup__main popup__main_default">
       <section-title
         class="popup__title"
@@ -75,6 +80,12 @@ import { mapActions } from 'vuex';
 import { INPUT_TYPES } from '@/constants.js';
 
 export default {
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: false,
+    }
+  },
   data(){
     return {
       INPUT_TYPES: {...INPUT_TYPES},
