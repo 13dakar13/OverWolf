@@ -1,6 +1,7 @@
 <template>
-  <section id="buy" class="buy">
+  <section class="buy">
     <section-title
+      id="buy"
       class="buy__title"
     >
       Покупай

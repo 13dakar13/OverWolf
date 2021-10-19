@@ -78,7 +78,7 @@ export default {
   data(){
     return {
       isReducedControls: false,
-      animationsConfirmPopup: true,
+      animationsConfirmPopup: false,
       popups: {
         login: {
           isOpen: false,
@@ -100,6 +100,8 @@ export default {
   },
   mounted(){
     if(process?.browser){
+      this.animationsConfirmPopup = !!(this.isAnimationsEnabled === undefined | this.isAnimationsEnabled === null);
+
       window.addEventListener('scroll', this.scrollHandler);
       this.scrollHandler();
     }

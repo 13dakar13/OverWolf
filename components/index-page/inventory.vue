@@ -19,10 +19,18 @@
     </aside>
 
     <main class="inventory__main">
+      <ul
+        class="inventory__groups"
+        v-show="filterItem[activeItemIndex].isAnimating"
+      >
+        <li class="inventory__group-item inventory__group-item_transparent">
+          1
+        </li>
+      </ul>
       <div
         class="inventory__icons-wrapper"
 
-        v-if="filterItem[activeItemIndex].isAnimating"
+        v-show="filterItem[activeItemIndex].isAnimating"
       >
         <img
           :src="reqiredImage"
@@ -41,7 +49,7 @@
         >
       </div>
 
-      <div class="inventory__icons-wrapper inventory__icons-wrapper_column " v-else>
+      <div class="inventory__icons-wrapper inventory__icons-wrapper_column" v-show="!filterItem[activeItemIndex].isAnimating">
         <ul
           class="inventory__groups"
           :class="`inventory__groups_${activeItemIndex}`"
@@ -72,12 +80,12 @@ export default {
     return {
       filterItem: [
         {
-          title: 'All',
+          title: 'Все',
           isActive: true,
           isAnimating: true,
         },
         {
-          title: 'Audio',
+          title: 'Звук',
           isActive: false,
           isAnimating: false,
           groups: [
@@ -88,12 +96,12 @@ export default {
           ]
         },
         {
-          title: 'Interface',
+          title: 'Интерфейс',
           isActive: false,
           isAnimating: true,
         },
         {
-          title: 'World',
+          title: 'Окружение',
           isActive: false,
           isAnimating: false,
           groups: [
@@ -104,7 +112,7 @@ export default {
           ]
         },
         {
-          title: 'Other',
+          title: 'Прочее',
           isActive: false,
           isAnimating: false,
           groups: [

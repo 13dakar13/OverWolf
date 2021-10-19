@@ -50,7 +50,7 @@ export default {
       if(this.$refs.enjoySection?.$el){
         const enjoySectionScrollTop = this.$refs.enjoySection.$el.getBoundingClientRect().top;
 
-        this.isEnjoySectionVisible = Math.abs(enjoySectionScrollTop) <= 800;
+        this.isEnjoySectionVisible = Math.abs(enjoySectionScrollTop) <= 1000;
       }
     },
   },

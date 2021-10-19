@@ -1,6 +1,6 @@
 export const state = () => ({
   isLoggedIn: false,
-  animationsShown: false,
+  animationsShown: null,
 })
 
 export const mutations = {
@@ -10,6 +10,10 @@ export const mutations = {
 
   setAnimationsStatus(state, status){
     state.animationsShown = status;
+
+    if(process.browser){
+      localStorage.setItem('animationsStatus', JSON.stringify({ status }));
+    }
   },
 }
 
@@ -29,6 +33,6 @@ export const getters = {
   },
 
   getAnimationsStatus(state){
-    return state.animationsShown;
+    return state.animationsShown ?? process.browser ? JSON.parse(localStorage.getItem('animationsStatus'))?.status : null;
   },
 }
