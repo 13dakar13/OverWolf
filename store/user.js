@@ -33,6 +33,6 @@ export const getters = {
   },
 
   getAnimationsStatus(state){
-    return state.animationsShown ?? process.browser ? JSON.parse(localStorage.getItem('animationsStatus'))?.status : null;
+    return state.animationsShown;
   },
 }

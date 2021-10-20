@@ -5,6 +5,7 @@
         <h1
           class="hero__title text-uppercase text-color-white"
           data-glitch-text="OverWolf"
+          ref="title"
         >
           OverWolf
         </h1>
@@ -25,6 +26,15 @@
 <script>
 import appButton from '~/components/common/appButton.vue';
 export default {
+  mounted(){
+    const title = this.$refs.title;
+
+    setInterval(() => {
+      title.classList.add('hero__title_animated');
+
+      setTimeout(() => title.classList.remove('hero__title_animated'), 1000)
+    }, 5000)
+  },
   components: {
     appButton,
   }

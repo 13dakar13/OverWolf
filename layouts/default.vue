@@ -100,6 +100,8 @@ export default {
   },
   mounted(){
     if(process?.browser){
+      this.setAnimationsStatus(!!JSON.parse(localStorage.getItem('animationsStatus'))?.status);
+
       this.animationsConfirmPopup = !!(this.isAnimationsEnabled === undefined | this.isAnimationsEnabled === null);
 
       window.addEventListener('scroll', this.scrollHandler);

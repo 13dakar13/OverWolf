@@ -55,6 +55,11 @@ export default {
 
       this.$emit('update:value', this.cValue);
     },
+  },
+  watch: {
+    value(newValue){
+      this.cValue = newValue;
+    }
   }
 }
 </script>

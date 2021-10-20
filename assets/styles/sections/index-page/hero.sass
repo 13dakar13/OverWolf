@@ -21,36 +21,35 @@
         z-index: 2
     &__body
         max-width: 380px
+    &__title-video
+        display: block
+
     &__title
         font-family: Audiowide
         font-size: 47px
         margin-bottom: 30px
         position: relative
         display: inline-block
-
-        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 0, 255, 0.75)
-
-        animation: glitch 500ms infinite
-        &:before, &:after
-            content: attr(data-glitch-text)
-            font-family: inherit
-            font-size: inherit
-            font-weight: inherit
-            color: inherit
-            position: absolute
-            overflow: hidden
-            top: 0
-            left: 0
-        &:before
-            animation: glitch 1s infinite
-            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%)
-            transform: translate(-0.025em, -0.0125em)
-            opacity: 0.8
-        &:after
-            animation: glitch 400ms infinite
-            clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%)
-            transform: translate(0.0125em, 0.025em)
-            opacity: 0.8
+        &_animated
+            &:before, &:after
+                content: attr(data-glitch-text)
+                font-family: inherit
+                font-size: inherit
+                font-weight: inherit
+                color: inherit
+                position: absolute
+                overflow: hidden
+                top: 0
+                left: 0
+            &:before
+                left: 2px
+                text-shadow: -2px 0 var(--main-pink)
+                clip: rect(44px, 450px, 56px, 0)
+                animation: glitch-anim 5s infinite linear alternate-reverse
+            &:after
+                left: -2px
+                text-shadow: -2px 0 var(--main-blue), 2px 2px var(--main-pink)
+                animation: glitch-anim2 1s infinite linear alternate-reverse
 
     &__description
         font-size: 14px
@@ -73,24 +72,14 @@
             font-size: 40px
             margin-bottom: 15px
 
-@keyframes glitch
-    0%
-        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(0, 255, 0, 0.75), -0.025em 0.05em 0 rgba(0, 0, 255, 0.75)
+@keyframes glitch-anim
+    $steps: 20
+    @for $i from 0 through $steps
+        #{percentage($i*(1/$steps))}
+            clip: rect(random(100)+px, 9999px, random(100)+px, 0)
 
-    14%
-        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75), -0.05em -0.025em 0 rgba(0, 255, 0, 0.75), -0.025em 0.05em 0 rgba(0, 0, 255, 0.75)
-
-    15%
-        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0 rgba(0, 0, 255, 0.75)
-
-    49%
-        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75), 0.025em 0.025em 0 rgba(0, 255, 0, 0.75), -0.05em -0.05em 0 rgba(0, 0, 255, 0.75)
-
-    50%
-        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75)
-
-    99%
-        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75)
-
-    100%
-        text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.025em 0 rgba(0, 255, 0, 0.75), -0.025em -0.05em 0 rgba(0, 0, 255, 0.75)
+@keyframes glitch-anim2
+    $steps: 20
+    @for $i from 0 through $steps
+        #{percentage($i*(1/$steps))}
+            clip: rect(random(100)+px, 9999px, random(100)+px, 0)
