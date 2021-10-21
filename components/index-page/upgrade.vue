@@ -19,7 +19,7 @@
     ></video> -->
 
     <img
-      src="~/assets/img/hero-section/6.jpg"
+      src="~/assets/img/hero-section/5.jpg"
       alt="background"
       class="upgrade__bg"
     >
