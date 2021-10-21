@@ -43,7 +43,7 @@
           muted
           class="upgrade__hero-media"
 
-          v-if="isAnimationsEnabled"
+          v-if="isAnimationsEnabled && !isIos"
         >
           <source :src="mediaItem.video" type="video/webm">
           <source :src="mediaItem.image" type="image/webp">
@@ -88,6 +88,13 @@ export default {
     ...mapGetters({
       isAnimationsEnabled: 'user/getAnimationsStatus'
     }),
+    isIos(){
+      if(process?.browser){
+        return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      }
+
+      return false;
+    }
   },
   components: {
     sectionTitle,
