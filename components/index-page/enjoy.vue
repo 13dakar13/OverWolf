@@ -23,11 +23,12 @@
         :key="mediaItem.video.webm"
       >
         <video
-          class="enjoy__video"
+          @loadedmetadata="videoLoadHandler(mediaItem.video)"
 
+          class="enjoy__video"
+          ref="video"
           preload="meta"
           playsinline
-          autoplay
           muted
           loop
 
@@ -82,6 +83,7 @@ export default {
           video: {
             webm: require('~/assets/video/enjoy/right-compare.webm'),
             mp4: require('~/assets/video/enjoy/right-compare.mp4'),
+            isLoaded: false,
           },
           image: require('~/assets/img/enjoy/right-compare.webp'),
         },
@@ -89,6 +91,7 @@ export default {
           video: {
             webm: require('~/assets/video/enjoy/left-compare.webm'),
             mp4: require('~/assets/video/enjoy/left-compare.mp4'),
+            isLoaded: false,
           },
           image: require('~/assets/img/enjoy/left-compare.webp'),
         },
@@ -105,6 +108,14 @@ export default {
     window.addEventListener('resize', () => this.maxSliderPercent = window.innerWidth >= 720 ? 95 : 85);
   },
   methods: {
+    videoLoadHandler(video){
+      video.isLoaded = true;
+
+      if(this.media.every(m => m.video.isLoaded)){
+        this.$refs.video.forEach(v => v.play());
+      }
+    },
+
     constrain(val, min, max){
       return val > max ? max : val < min ? min : val;
     },
