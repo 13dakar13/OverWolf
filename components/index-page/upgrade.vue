@@ -5,8 +5,8 @@
     >
       Улучшай
     </section-title>
-
-    <video
+    <!-- TODO: delete if unnecessary -->
+    <!-- <video
       src="~/assets/video/upgrade-bg.webm"
       loop
       playsinline
@@ -16,14 +16,12 @@
       class="upgrade__bg"
 
       v-if="isAnimationsEnabled"
-    ></video>
+    ></video> -->
 
     <img
-      src="~/assets/img/upgrade-bg.webp"
+      src="~/assets/img/hero-section/6.jpg"
       alt="background"
       class="upgrade__bg"
-
-      v-else
     >
 
     <div class="upgrade__container">
