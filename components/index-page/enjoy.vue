@@ -23,7 +23,7 @@
         :key="mediaItem.video.webm"
       >
         <video
-          @loadedmetadata="videoLoadHandler(mediaItem.video)"
+          @loadeddata="videoLoadHandler(mediaItem.video)"
 
           class="enjoy__video"
           ref="video"
