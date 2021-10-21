@@ -106,19 +106,6 @@ export default {
     document.addEventListener('touchend',this.handleMouseUp);
 
     window.addEventListener('resize', () => this.maxSliderPercent = window.innerWidth >= 720 ? 95 : 85);
-
-    this.$refs.video.forEach((v, idx) => v.addEventListener('loadeddata', this.videoLoadHandler(this.media[idx].video)))
-
-    setInterval(() => {
-      const [rightVideo, leftVideo] = this.$refs.video;
-
-      if(leftVideo.currentTime !== rightVideo.currentTime){
-        const minTime = Math.min(leftVideo.currentTime, rightVideo.currentTime);
-
-        leftVideo.currentTime = minTime;
-        rightVideo.currentTime = minTime;
-      }
-    }, 3000);
   },
   methods: {
     videoLoadHandler(video){
@@ -126,6 +113,17 @@ export default {
 
       if(this.media.every(m => m.video.isLoaded)){
         this.$refs.video.forEach(v => v.play());
+
+        setInterval(() => {
+          const [rightVideo, leftVideo] = this.$refs.video;
+
+          if(leftVideo.currentTime !== rightVideo.currentTime){
+            const minTime = Math.min(leftVideo.currentTime, rightVideo.currentTime)
+
+            leftVideo.currentTime = minTime;
+            rightVideo.currentTime = minTime;
+          }
+        }, 31000);
       }
     },
 
