@@ -20,10 +20,9 @@
         class="enjoy__video-container"
 
         v-for="mediaItem in media"
-        :key="mediaItem.video"
+        :key="mediaItem.video.webm"
       >
         <video
-          :src="mediaItem.video"
           class="enjoy__video"
 
           preload="meta"
@@ -33,7 +32,10 @@
           loop
 
           v-show="isVideosShown && isAnimationsEnabled"
-        />
+        >
+          <source :src="mediaItem.video.webm" type="video/webm">
+          <source :src="mediaItem.video.mp4" type="video/mp4">
+        </video>
 
         <img
           :src="mediaItem.image"
@@ -77,11 +79,17 @@ export default {
       maxSliderPercent: 95,
       media: [
         {
-          video: require('~/assets/video/enjoy/right-compare.webm'),
+          video: {
+            webm: require('~/assets/video/enjoy/right-compare.webm'),
+            mp4: require('~/assets/video/enjoy/right-compare.mp4'),
+          },
           image: require('~/assets/img/enjoy/right-compare.webp'),
         },
         {
-          video: require('~/assets/video/enjoy/left-compare.webm'),
+          video: {
+            webm: require('~/assets/video/enjoy/left-compare.webm'),
+            mp4: require('~/assets/video/enjoy/left-compare.mp4'),
+          },
           image: require('~/assets/img/enjoy/left-compare.webp'),
         },
       ]

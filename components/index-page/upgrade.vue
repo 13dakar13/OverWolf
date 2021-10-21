@@ -5,18 +5,6 @@
     >
       Улучшай
     </section-title>
-    <!-- TODO: delete if unnecessary -->
-    <!-- <video
-      src="~/assets/video/upgrade-bg.webm"
-      loop
-      playsinline
-      preload="meta"
-      autoplay
-      muted
-      class="upgrade__bg"
-
-      v-if="isAnimationsEnabled"
-    ></video> -->
 
     <img
       src="~/assets/img/hero-section/5.jpg"
@@ -48,7 +36,6 @@
         :key="mediaItem.side"
       >
         <video
-          :src="mediaItem.video"
           loop
           playsinline
           preload="meta"
@@ -57,7 +44,10 @@
           class="upgrade__hero-media"
 
           v-if="isAnimationsEnabled"
-        ></video>
+        >
+          <source :src="mediaItem.video" type="video/webm">
+          <source :src="mediaItem.image" type="image/webp">
+        </video>
 
         <img
           :src="mediaItem.image"
