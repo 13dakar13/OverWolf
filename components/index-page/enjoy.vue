@@ -29,7 +29,6 @@
           ref="video"
           preload="meta"
           playsinline
-          autoplay
           muted
           loop
 
@@ -108,21 +107,26 @@ export default {
 
     window.addEventListener('resize', () => this.maxSliderPercent = window.innerWidth >= 720 ? 95 : 85);
 
+    this.$refs.video.forEach((v, idx) => v.addEventListener('loadeddata', this.videoLoadHandler(this.media[idx].video)))
+
     setInterval(() => {
-      const [leftVideo, rightVideo] = this.$refs.video;
+      const [rightVideo, leftVideo] = this.$refs.video;
 
       if(leftVideo.currentTime !== rightVideo.currentTime){
-        leftVideo.currentTime = rightVideo.currentTime;
+        const minTime = Math.min(leftVideo.currentTime, rightVideo.currentTime);
+
+        leftVideo.currentTime = minTime;
+        rightVideo.currentTime = minTime;
       }
-    }, 2000);
+    }, 3000);
   },
   methods: {
     videoLoadHandler(video){
       video.isLoaded = true;
 
-      // if(this.media.every(m => m.video.isLoaded)){
-      //   this.$refs.video.forEach(v => v.play());
-      // }
+      if(this.media.every(m => m.video.isLoaded)){
+        this.$refs.video.forEach(v => v.play());
+      }
     },
 
     constrain(val, min, max){
