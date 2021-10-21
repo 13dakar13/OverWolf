@@ -29,6 +29,7 @@
           ref="video"
           preload="meta"
           playsinline
+          autoplay
           muted
           loop
 
@@ -119,9 +120,9 @@ export default {
     videoLoadHandler(video){
       video.isLoaded = true;
 
-      if(this.media.every(m => m.video.isLoaded)){
-        this.$refs.video.forEach(v => v.play());
-      }
+      // if(this.media.every(m => m.video.isLoaded)){
+      //   this.$refs.video.forEach(v => v.play());
+      // }
     },
 
     constrain(val, min, max){
