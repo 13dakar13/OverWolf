@@ -67,7 +67,19 @@
         <img
           :src="reqiredImage"
           alt="icons"
-          class="inventory__icons"
+          class="inventory__icons inventory__icons_mobile-animated"
+        >
+
+        <img
+          :src="reqiredImage"
+          alt="icons"
+          class="inventory__icons inventory__icons_mobile-animated"
+        >
+
+        <img
+          :src="reqiredImage"
+          alt="icons"
+          class="inventory__icons inventory__icons_mobile-animated"
         >
       </div>
     </main>

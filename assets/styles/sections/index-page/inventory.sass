@@ -113,9 +113,24 @@
         &__icons
             width: auto
 
+@media screen and ( min-width: 962px )
+    .inventory
+        &__icons
+            &:not(&:nth-of-type(1)).inventory__icons_mobile-animated
+                display: none !important
+
 @media screen and ( max-width: 962px )
     .inventory
+        &__icons
+            animation: slide 7s linear 0s infinite
+            max-width: none
+            &_mobile-animated
+                display: block !important
+        &__main
+            max-width: calc( 100vw - 40px )
         &__icons-wrapper
+            flex-direction: row
+        &__icons, &__icons-wrapper
             height: 100%
 
 @media screen and ( max-width: 500px )
