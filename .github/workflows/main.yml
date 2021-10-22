@@ -27,7 +27,7 @@ jobs:
       - run: rsync -avz ./.nuxt root@${{ secrets.APP_DOMEN }}:/var/www/${{ secrets.APP_DOMEN }}/.nuxt
       - run: rsync -avz ./package.json root@${{ secrets.APP_DOMEN }}:/var/www/${{ secrets.APP_DOMEN }}/
       
-      - name: executing remote ssh commands using ssh key
+      - name: Start application
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.APP_DOMEN }}
