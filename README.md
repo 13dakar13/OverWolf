@@ -1,3 +1,5 @@
+![example event parameter](https://github.com/Belshed/OverWolf/actions/workflows/main.yml/badge.svg?event=push)
+
 # OverWolf
 
 ## Build Setup
