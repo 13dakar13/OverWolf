@@ -24,7 +24,7 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
       - run: ssh-keyscan -H ${{ secrets.APP_DOMEN }} >> ~/.ssh/known_hosts
-      - run: rsync -avz ./.nuxt root@${{ secrets.APP_DOMEN }}:/var/www/${{ secrets.APP_DOMEN }}/.nuxt
+      - run: rsync -avz ./.nuxt root@${{ secrets.APP_DOMEN }}:/var/www/${{ secrets.APP_DOMEN }}/
       - run: rsync -avz ./package.json root@${{ secrets.APP_DOMEN }}:/var/www/${{ secrets.APP_DOMEN }}/
       
       - name: Start application
