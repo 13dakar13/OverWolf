@@ -33,4 +33,4 @@ jobs:
           host: ${{ secrets.APP_DOMEN }}
           username: root
           key: ${{ secrets.PRIVATE_KEY }}
-          script: cd /var/www/${{ secrets.APP_DOMEN }}/ && npm i && pm2 delete vue_app && pm2 start "npm run start" --name vue_app
+          script: cd /var/www/${{ secrets.APP_DOMEN }}/ && npm i
