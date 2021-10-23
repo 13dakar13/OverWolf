@@ -24,13 +24,13 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           known_hosts: 'placeholder'
       - run: ssh-keyscan -H ${{ secrets.APP_DOMEN }} >> ~/.ssh/known_hosts
-      - run: rsync -avz ./.nuxt root@${{ secrets.APP_DOMEN }}:/var/www/${{ secrets.APP_DOMEN }}/
+      - run: rsync -avz ./.nuxt ${{ secrets.SSH_USERNAME }}@${{ secrets.APP_DOMEN }}:/var/www/${{ secrets.APP_DOMEN }}/
       - run: rsync -avz ./package.json root@${{ secrets.APP_DOMEN }}:/var/www/${{ secrets.APP_DOMEN }}/
       
       - name: Start application
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.APP_DOMEN }}
-          username: root
+          username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.PRIVATE_KEY }}
           script: cd /var/www/${{ secrets.APP_DOMEN }}/ && npm i
