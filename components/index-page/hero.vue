@@ -4,10 +4,10 @@
       <div class="hero__body">
         <h1
           class="hero__title text-uppercase text-color-white"
-          data-glitch-text="OverWolf2"
+          data-glitch-text="OverWolf"
           ref="title"
         >
-          OverWolf2
+          OverWolf
         </h1>
 
         <p class="hero__description text-color-white">
